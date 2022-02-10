@@ -1,0 +1,46 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "the best way to watch videos",
+  "scripts": {
+    "dev:server": "nodemon",
+    "dev:assets": "webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kurepark/wetube-reloaded.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kurepark/wetube-reloaded/issues"
+  },
+  "homepage": "https://github.com/kurepark/wetube-reloaded#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.1.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "node-fetch": "^2.6.6",
+    "pug": "^3.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.16.5",
+    "@babel/node": "^7.16.5",
+    "@babel/preset-env": "^7.16.5",
+    "babel-loader": "^8.2.3",
+    "bable-loader": "^0.0.1-security",
+    "css-loader": "^6.5.1",
+    "mini-css-extract-plugin": "^2.5.2",
+    "nodemon": "^2.0.15",
+    "sass": "^1.48.0",
+    "sass-loader": "^12.4.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.66.0",
+    "webpack-cli": "^4.9.1"
+  }
+}

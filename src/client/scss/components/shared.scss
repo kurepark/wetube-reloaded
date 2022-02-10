@@ -1,0 +1,20 @@
+.empty__message {
+    margin-bottom: 50px;
+    font-size: 18px;
+}
+
+.video-grid {
+    display: grid;
+    gap: 50px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}

@@ -1,0 +1,19 @@
+.social-login {
+    padding-top: 30px;
+    border-top: 1px solid rgba(#fff, 0.5);
+    margin-top: 30px;
+
+    .social__btn--github {
+        background-color: transparent;
+        color: azure;
+    }
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 10px;
+
+    a {
+        text-decoration: underline;
+    }
+}
