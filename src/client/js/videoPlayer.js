@@ -17,6 +17,7 @@ let constorlsMovemetTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
 
+
 const handlePlayClick = (e) => {
     // if player => puase
     // else play the video
@@ -100,17 +101,22 @@ const handelMouseLeave = () => {
     controlsTimeout = setTimeout(hideControls, 3000);
 }
 
+const handleEnded = () => {
+    const { id } = videoContainer.dataset;
+    fetch(`/api/videos/${id}/view`, {
+        method: "POST",
+    });
+}
+
 playBtn.addEventListener("click", handlePlayClick);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
 video.addEventListener("loadedmetadata", handelLoadedMetaData);
 video.addEventListener("timeupdate", handelTimeUpdate);
 video.addEventListener("click", handlePlayClick);
+video.addEventListener("ended", handleEnded);
 timeline.addEventListener("input", handelTimelineChange);
 fullScreenBtn.addEventListener("click", handelFullScreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handelMouseLeave);
 document.addEventListener("keydown", handlePlayClick);
-
-// 비디오 화면 선택시 play/pased
-// space bar 사용시에 play/pased 
