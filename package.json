@@ -51,5 +51,5 @@
     "node-fetch": "^2.6.6",
     "pug": "^3.0.2",
     "regenerator-runtime": "^0.13.9"
-  },
+  }
 }
