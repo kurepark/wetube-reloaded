@@ -17,7 +17,7 @@ header
                 li 
                     a(href=`/users/${loggedInUser._id}`)
                         if loggedInUser.avatarUrl == ""
-                            span 😀
+                            span 😀😀
                         else 
                             if loggedInUser.socialOnly.includes("github")
                                 img.header__avatar(src="/" + loggedInUser.avatarUrl)
