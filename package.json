@@ -20,23 +20,6 @@
     "url": "https://github.com/kurepark/wetube-reloaded/issues"
   },
   "homepage": "https://github.com/kurepark/wetube-reloaded#readme",
-  "dependencies": {
-    "@ffmpeg/core": "^0.10.0",
-    "@ffmpeg/ffmpeg": "^0.10.1",
-    "bcrypt": "^5.0.1",
-    "connect-mongo": "^4.6.0",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-flash": "^0.0.2",
-    "express-session": "^1.17.2",
-    "mongoose": "^6.1.2",
-    "morgan": "^1.10.0",
-    "multer": "^1.4.4",
-    "node-fetch": "^2.6.6",
-    "pug": "^3.0.2",
-    "regenerator-runtime": "^0.13.9",
-    "sass": "^1.48.0",
-  },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
     "@babel/core": "^7.17.8",
@@ -52,5 +35,21 @@
     "style-loader": "^3.3.1",
     "webpack": "^5.66.0",
     "webpack-cli": "^4.9.1"
-  }
+  },
+  "dependencies": {
+    "@ffmpeg/core": "^0.10.0",
+    "@ffmpeg/ffmpeg": "^0.10.1",
+    "bcrypt": "^5.0.1",
+    "connect-mongo": "^4.6.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.2",
+    "mongoose": "^6.1.2",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.4",
+    "node-fetch": "^2.6.6",
+    "pug": "^3.0.2",
+    "regenerator-runtime": "^0.13.9"
+  },
 }
