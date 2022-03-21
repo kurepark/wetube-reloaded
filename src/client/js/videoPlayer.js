@@ -119,4 +119,4 @@ timeline.addEventListener("input", handelTimelineChange);
 fullScreenBtn.addEventListener("click", handelFullScreen);
 videoContainer.addEventListener("mousemove", handleMouseMove);
 videoContainer.addEventListener("mouseleave", handelMouseLeave);
-document.addEventListener("keydown", handlePlayClick);
+videoContainer.addEventListener("keydown", handlePlayClick); // TODO: space 눌림 영역 수정필요

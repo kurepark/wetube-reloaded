@@ -1,8 +1,9 @@
-import mongoose from "mongoose";
+import mongoose, { mongo } from "mongoose";
 
 const videoSchema = new mongoose.Schema({
     title: { type: String, required: true, trim: true, maxLength: 80 },
     fileUrl: { type: String, required: true },
+    thumbUrl: { type: String, required: true },
     description: { type: String, required: true, trim: true, minLength: 20 },
     createdAt: { type: Date, required: true, default: Date.now },
     hashtags: [{ type: String, trim: true }],
@@ -10,6 +11,7 @@ const videoSchema = new mongoose.Schema({
         views: { type: Number, default: 0, required: true },
         ratings: { type: Number, default: 0, required: true },
     },
+    comments: [{ type: mongoose.Schema.Types.ObjectId, required: true, ref: "Comment" }],
     owner: { type: mongoose.Schema.Types.ObjectId, required: true, ref: "User" },
 });
 

@@ -1,0 +1,20 @@
+.video__comments {
+    display: flex;
+    flex-direction: column;
+    max-width: 320px;
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+
+    .video__comment {
+        padding: 10px;
+        border-radius: 90px;
+        background-color: #fff;
+        color: black;
+        margin-bottom: 10px;
+        -webkit-border-radius: 90px;
+        -moz-border-radius: 90px;
+        -ms-border-radius: 90px;
+        -o-border-radius: 90px;
+    }
+}

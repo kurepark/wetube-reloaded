@@ -1,6 +1,7 @@
 import { renderSync } from "sass";
 import User from "../models/User";
 import Video from "../models/Video";
+import Comment from "../models/Comment";
 
 export const home = async (req, res) => {
     const videos = await Video.find({}).sort({ createdAt: "desc" }).populate("owner");
@@ -8,7 +9,8 @@ export const home = async (req, res) => {
 };
 export const watch = async (req, res) => {
     const { id } = req.params;
-    const video = await Video.findById(id).populate("owner");
+    const video = await Video.findById(id).populate("owner").populate("comments");
+    console.log("video", video);
     if (!video) {
         return res.status(404).render("404", { pageTitle: "Video not found." });
     } else {
@@ -40,6 +42,7 @@ export const postEdit = async (req, res) => {
         return res.render("404", { pageTitle: "Video not found." });
     }
     if (String(video.owner) !== String(_id)) {
+        req.flash("error", "접근할 수 없는 페이지입니다.");
         return res.status(403).redirect("/")
     }
 
@@ -57,12 +60,13 @@ export const getUpload = (req, res) => {
 export const postUpload = async (req, res) => {
     const { user: { _id } } = req.session;
     const { title, description, hashtags } = req.body;
-    const { path: fileUrl } = req.file;
+    const { video, thumb } = req.files;
     try {
         const newVideo = await Video.create({
             title: title,
             description: description,
-            fileUrl,
+            fileUrl: video[0].path,
+            thumbUrl: thumb[0].path,
             owner: _id,
             hashtags: Video.formatHashtags(hashtags)
         });
@@ -119,4 +123,47 @@ export const registerView = async (req, res) => {
     video.meta.views = video.meta.views + 1;
     await video.save();
     return res.sendStatus(200);
+}
+
+export const deleteComment = async (req, res) => {
+    const {
+        session: {
+            user: _id,
+        },
+        params: { id },
+    } = req;
+
+    const comment = await Comment.findById(id);
+
+
+    if (!comment) {
+        return res.status(404);
+    }
+
+    await Comment.findByIdAndDelete(id);
+
+    return res.sendStatus(200);
+}
+
+export const createComment = async (req, res) => {
+    const {
+        session: { user },
+        body: { text },
+        params: { id },
+    } = req;
+
+    const video = await Video.findById(id);
+
+    if (!video) {
+        return res.sendStatus(404); // sendStatus -> kill request
+    }
+
+    const comment = await Comment.create({
+        text: text,
+        owner: user._id,
+        video: id,
+    });
+    video.comments.push(comment._id);
+    video.save();
+    return res.status(201).json({ newCommentId: comment._id });
 }

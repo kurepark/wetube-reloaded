@@ -14,6 +14,7 @@ form {
     }
 }
 
+input:not[type="submit"],
 input:not[type="range"] {
     all: unset;
     padding: 15px 20px;
@@ -37,9 +38,18 @@ input[type="submit"],
     -ms-border-radius: 5px;
     -o-border-radius: 5px;
     padding: 12px 20px;
-    background-color: #fff;
-    color: rgba($red, 1);
-    text-align: center;
+    background-color: #fff !important;
+    color: rgba($red, 1) !important;
+    text-align: center !important;
     cursor: pointer;
     display: block;
+    border: none;
+    &:focus {
+        outline: none;
+    }
+    &:disabled {
+        opacity: 0,5;
+        pointer-events: none;
+    }
+
 }
