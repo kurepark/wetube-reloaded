@@ -172,7 +172,7 @@ export const postEdit = async (req, res) => {
         });
     } else {
         const updateUser = await User.findByIdAndUpdate(_id, {
-            avatarUrl: file ? file.path : avatarUrl, // 기존 파일이 있으면 avatarUrl 유지, 없으면 file.path 저장
+            avatarUrl: file ? file.location : avatarUrl, // 기존 파일이 있으면 avatarUrl 유지, 없으면 file.path 저장
             name,
             username,
             email,
